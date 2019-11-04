@@ -19,3 +19,7 @@
     </application>
 
 </manifest>
+
+    <!--
+    這是XML格式，其根元素manifest，而它的內部有個元素application，用來定義這個應用程式所有會用到Android類別
+    -->

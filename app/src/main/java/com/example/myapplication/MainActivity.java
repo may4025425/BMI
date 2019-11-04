@@ -13,9 +13,14 @@ import android.widget.Toast;
 
 
 /*筆記區（check重點）
+    TextView(為顯示文字內容：程式輸出）EditText（為輸入文字內容：程式輸入）
+
 * 1.拉元件、調整大小置中...等設定
 * 2.取得元件，提升為屬性，抽取方法->設定id
-* 3.
+* 3.按鈕事件處理（匿名類別）：
+*            ->1.取得畫面中的按鈕物件（使用findViewById），然後將他ID做更改，利用他的ID名字將它這個物件轉成屬性，最後取得這個元件的幾行程式碼，將它們抽取成為findViews方法）
+*             －>2.為按鈕物件註冊事件傾聽器(使用浮動： Toast類別； 使用對話眶：AlertDialog類別）
+*              －>3.在傾聽器的方法中實作程式碼
 * 4.
 *
 * */
@@ -55,10 +60,20 @@ public class MainActivity extends AppCompatActivity {
         float bmi = weight/(height*height);
         Log.d("bmi",String.valueOf(bmi));
         //Log.d("MainActivity","BMI"+bmi);也可以
+
+
         Toast.makeText(this,String.valueOf(bmi),Toast.LENGTH_LONG).show();
+
+      /*  AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage(bmi+"");//設定顯示文字//setMessage()記得選字串，然後(bmi+"")的語法是：能將bmi轉成string，因為Java的特性（當左右是字串時，會將整數轉成字串）
+                builder.show();//顯示對話眶
+      */
+
         new AlertDialog.Builder(this)
 
-                .setMessage(bmi+"");
+        .setMessage(bmi+"")//設定顯示文字
+        .setPositiveButton("ok",null)
+        .show();//顯示對話眶
 
 
     }
