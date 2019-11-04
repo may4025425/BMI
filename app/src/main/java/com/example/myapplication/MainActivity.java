@@ -53,10 +53,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void bmi(View v){
-        String w = edWeight.getText().toString();
+       /* String w = edWeight.getText().toString();
         String h = edHeight.getText().toString();
         float weight = Float.parseFloat(w);
-        float height = Float.parseFloat(h);
+        float height = Float.parseFloat(h);*/
+        float weight = Float.parseFloat(edWeight.getText().toString());
+        float height = Float.parseFloat(edHeight.getText().toString());
         float bmi = weight/(height*height);
         Log.d("bmi",String.valueOf(bmi));
         //Log.d("MainActivity","BMI"+bmi);也可以
@@ -69,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 builder.show();//顯示對話眶
       */
 
-        new AlertDialog.Builder(this)
+        new AlertDialog.Builder(MainActivity.this)
 
         .setMessage(bmi+"")//設定顯示文字
         .setPositiveButton("ok",null)
@@ -79,8 +81,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void help(View view){
+        new AlertDialog.Builder(MainActivity.this)
 
-        System.out.println("抱歉");
+                .setMessage("抱歉喔")//設定顯示文字
+                .setPositiveButton("ok",null)
+                .show();//顯示對話眶
+
+
 
 
     }
